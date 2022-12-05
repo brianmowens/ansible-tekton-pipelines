@@ -1,0 +1,4 @@
+---
+- hosts: tekton_pipelines_k8s_node
+  roles:
+    - tekton-pipelines-k8s

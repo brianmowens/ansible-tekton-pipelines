@@ -1,0 +1,6 @@
+---
+# defaults file for tekton-pipelines-k8s
+
+enable_tekton_dashboard: true
+install_tekton_triggers: true
+install_tekton_cli: true

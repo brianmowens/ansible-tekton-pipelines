@@ -1,0 +1,12 @@
+- name: Install TektonCD pipelines
+  shell: kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+  register: kubectl_apply_tekton_output
+  failed_when:
+    - kubectl_apply_tekton_output.rc > 0
+
+- name: Install TektonCD dashboard
+  shell: kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/tekton-dashboard-release.yaml
+  register: kubectl_apply_dashboard_output
+  failed_when:
+    - kubectl_apply_dashboard_output.rc > 0
+  when: enable_tekton_dashboard

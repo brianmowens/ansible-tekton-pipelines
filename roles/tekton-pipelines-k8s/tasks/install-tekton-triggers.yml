@@ -1,0 +1,6 @@
+
+- name: Install Tekton Triggers
+  shell: kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
+
+- name: Install Tekton Triggers Interceptors
+  shell: kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml

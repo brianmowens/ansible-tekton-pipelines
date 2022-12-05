@@ -1,0 +1,16 @@
+---
+# tasks file for tekton-pipelines-k8s
+
+- name: Install Tekton-pipelines
+  include_tasks: install-tekton-pipelines.yml
+
+- name: Patch dashboard service
+  include_tasks: patch-dashboard-service.yml
+
+- name: Install Tekton CLI
+  include_tasks: install-tekton-cli.yml
+  when: install_tekton_cli
+
+- name: Install Tekton Triggers
+  include_tasks: install-tekton-triggers.yml
+  when: install_tekton_triggers

@@ -1,0 +1,10 @@
+- name: Copy patch file
+  copy:
+    src: patch-dashboard-service.yaml
+    dest: /tmp/patch-dashboard-service.yaml
+
+- name: Set Dashboard service type to LoadBalancer
+  shell: kubectl patch svc tekton-dashboard -n tekton-pipelines --patch-file /tmp/patch-dashboard-service.yaml
+  register: kubectl_dashboard_patch
+  failed_when:
+    - kubectl_dashboard_patch.rc > 0
